@@ -41,7 +41,7 @@ A Django-based end-to-end encrypted email service that ensures only intended rec
 
 1. **Clone the repository**
    \`\`\`bash
-   git clone https://github.com/yourusername/encrypted-email-service.git
+   git clone https://github.com/sajibuddin729/encrypted-email-service.git
    cd encrypted-email-service
    \`\`\`
 
@@ -300,35 +300,6 @@ We welcome contributions! Please follow these steps:
 - Add tests for new features
 - Update documentation
 - Ensure security best practices
-
-## 🗺️ Roadmap
-
-### Planned Features
-- [ ] Client-side encryption/decryption
-- [ ] File attachment support with encryption
-- [ ] Two-factor authentication
-- [ ] Email threading and conversations
-- [ ] Mobile app (React Native)
-- [ ] PGP key import/export
-- [ ] Email scheduling
-- [ ] Advanced search functionality
-- [ ] Email templates
-- [ ] Bulk email operations
-
-### Performance Improvements
-- [ ] Database query optimization
-- [ ] Caching implementation
-- [ ] Async email sending
-- [ ] Message compression
-
-
-## 📊 Statistics
-
-- **Lines of Code**: ~2,000+
-- **Languages**: Python, HTML, CSS, JavaScript
-- **Dependencies**: Django, Bootstrap, Cryptography
-- **Database**: SQLite (development), PostgreSQL (production ready)
-
 ---
 
 Made by [Md. Sajib Uddin] for academic purposes 
