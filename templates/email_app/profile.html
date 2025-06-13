@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Profile - Encrypted Email Service{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Profile Settings</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Email Provider Settings</h5>
+            </div>
+            <div class="card-body">
+                {% if connection_status %}
+                    <div class="alert {% if connection_status.success %}alert-success{% else %}alert-danger{% endif %}">
+                        <strong>Email Connection Status:</strong> {{ connection_status.message }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-warning">
+                        <strong>Email not configured:</strong> Please set up your email credentials in environment variables to send emails to external recipients.
+                    </div>
+                {% endif %}
+                
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Your Public Key</h5>
+            </div>
+            <div class="card-body">
+                <p>Share this public key with others so they can send you encrypted emails:</p>
+                <div class="form-group">
+                    <textarea class="form-control" rows="10" readonly>{{ public_key }}</textarea>
+                </div>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-outline-primary" onclick="copyToClipboard()">Copy to Clipboard</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block extra_js %}
+<script>
+    function copyToClipboard() {
+        const textarea = document.querySelector('textarea');
+        textarea.select();
+        document.execCommand('copy');
+        alert('Public key copied to clipboard!');
+    }
+</script>
+{% endblock %}
+{% endblock %}

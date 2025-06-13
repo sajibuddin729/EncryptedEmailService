@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Compose - Encrypted Email Service{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Compose Email</h2>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="alert alert-info">
+                <p><strong>Note:</strong> Your message will be encrypted with the recipient's public key. Only they will be able to read it.</p>
+            </div>
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

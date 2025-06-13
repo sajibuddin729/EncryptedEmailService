@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ email.subject }} - Encrypted Email Service{% endblock %}
+
+{% block content %}
+<div class="mb-3">
+    <a href="{% if request.user == email.sender %}{% url 'sent' %}{% else %}{% url 'inbox' %}{% endif %}" class="btn btn-outline-secondary">
+        <i class="bi bi-arrow-left"></i> Back
+    </a>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="mb-0">{{ email.subject }}</h5>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <strong>From:</strong> {{ email.sender.username }} ({{ email.sender.email }})
+        </div>
+        <div class="mb-3">
+            <strong>To:</strong>
+            {% for recipient in email.recipients.all %}
+                {{ recipient.username }} ({{ recipient.email }}){% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </div>
+        <div class="mb-3">
+            <strong>Date:</strong> {{ email.date_sent|date:"F d, Y H:i" }}
+        </div>
+        <hr>
+        <div class="email-content">
+            {% if decrypted_content %}
+                <pre class="bg-light p-3 rounded" style="white-space: pre-wrap;">{{ decrypted_content }}</pre>
+            {% elif request.user == email.sender %}
+                <div class="alert alert-info">
+                    <p>This message is encrypted and can only be read by the recipient.</p>
+                </div>
+            {% else %}
+                <div class="alert alert-danger">
+                    <p>Unable to decrypt this message. You may not have the correct private key.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

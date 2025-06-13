@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Inbox - Encrypted Email Service{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Inbox</h2>
+</div>
+
+<div class="card">
+    <div class="card-body p-0">
+        {% if emails %}
+            <div class="table-responsive email-list">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for email in emails %}
+                            <tr class="email-item {% if not email.read %}unread{% endif %}">
+                                <td>{{ email.sender.username }}</td>
+                                <td>
+                                    <a href="{% url 'view_email' email.id %}" class="text-decoration-none text-dark">
+                                        {{ email.subject }}
+                                    </a>
+                                </td>
+                                <td>{{ email.date_sent|date:"M d, Y H:i" }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="text-center p-5">
+                <p class="text-muted">Your inbox is empty.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
