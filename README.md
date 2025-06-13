@@ -336,15 +336,15 @@ Made by [Md. Sajib Uddin] for academic purposes
 
 ## UI & working photos
 ![image](https://github.com/user-attachments/assets/6fb361bb-303e-4328-b4c9-bf6e7df603f8)
-![image](https://github.com/user-attachments/assets/6fb361bb-303e-4328-b4c9-bf6e7df603f8)
+
 ![image](https://github.com/user-attachments/assets/8d37500b-0ec2-46d5-af9e-1ebddfe66eb6)
-![image](https://github.com/user-attachments/assets/8d37500b-0ec2-46d5-af9e-1ebddfe66eb6)
+
 ![image](https://github.com/user-attachments/assets/0a03f711-2877-42f9-8d15-be817100c14a)
-![image](https://github.com/user-attachments/assets/0a03f711-2877-42f9-8d15-be817100c14a)
+
 ![image](https://github.com/user-attachments/assets/c4717dce-8e54-45e3-896e-3d93da1a1729)
-![image](https://github.com/user-attachments/assets/c4717dce-8e54-45e3-896e-3d93da1a1729)
+
 ![image](https://github.com/user-attachments/assets/33d9f136-4050-4cf3-8224-31d642b8b577)
-![image](https://github.com/user-attachments/assets/33d9f136-4050-4cf3-8224-31d642b8b577)
+
 
 
 
